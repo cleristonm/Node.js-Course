@@ -31,3 +31,20 @@ console.log(copiedHobbies);
 const toArray = (...args) =>  args
 
 console.log(toArray(1,2,3,4));
+
+//Destruction syntax
+// Object destructing
+const printName = ({name}) => {
+    console.log(name);
+}
+
+printName(person);
+
+const { name, age }  = person;
+
+console.log(name +" is "+age+" years old");
+
+//Array destructing
+
+const [hobby1, hobby2] = hobbies;
+console.log(hobby1,hobby2);
