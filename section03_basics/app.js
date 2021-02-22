@@ -3,7 +3,7 @@ const http = require('http');
 const fs = require('fs');
 
 const server = http.createServer((req, res) => {
-    console.log(req.url, req.method, req.headers);
+    //console.log(req.url, req.method, req.headers);
     // process.exit();
     const url = req.url;
     const method = req.method;
@@ -18,7 +18,17 @@ const server = http.createServer((req, res) => {
     }
 
     if ( url === '/message' && method === 'POST'){
-        fs.writeFileSync('/tmp/message.txt', 'DUMMY');
+
+        const body = [];
+        req.on('data', (chunck) => {
+            body.push(chunck);
+        });
+        req.on('end', () => {
+            const parsedBody = Buffer.concat(body).toString();
+            const message = parsedBody.split("=")[1];    
+            fs.writeFileSync('/tmp/message.txt', message);
+        });
+
         // redirect code
         res.statusCode = 302;
         res.setHeader('Location', '/');
