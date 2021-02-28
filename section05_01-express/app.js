@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/admin',adminRoutes);
 app.use(shopRoutes);
 
+app.use(express.static(path.join(__dirname, 'public')));
 
 //The default is /
 app.use( (req, res, next) => {    
