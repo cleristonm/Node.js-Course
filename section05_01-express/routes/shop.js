@@ -7,7 +7,7 @@ router.use('/', (req, res, next) => {
     next();
 })
 
-router.use('/', (req, res, next) => {
+router.get('/', (req, res, next) => {
     console.log("In the another middleware");
     res.send('<h1>Hello from Express!</h1><p><a href="add-product">Add product</a></p>');
 })
