@@ -9,7 +9,7 @@ const shopRoutes = require('./routes/shop');
 //This middleware parse our chunks of body in a body
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use(adminRoutes);
+app.use('/admin',adminRoutes);
 app.use(shopRoutes);
 
 
