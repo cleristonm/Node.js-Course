@@ -7,6 +7,7 @@ const expressHbs = require('express-handlebars');
 const app = express();
 
 app.engine('hbs', expressHbs());
+//hbs is the file's extesion 
 app.set('view engine', 'hbs');
 //app.set('view engine', 'pug');
 //this is the default value
